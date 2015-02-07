@@ -1,0 +1,10 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  username: postgres
+  pool: 5
+  timeout: 5000
+
+test:
+  <<: *default
+  database: unconstrained_test
