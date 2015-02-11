@@ -15,9 +15,9 @@ module Unconstrained
 
     protected
 
-    def save_with_constraints_handling
+    def save_with_constraints_handling(*args)
       with_constraints_handling :save do
-        save_without_constraints_handling
+        save_without_constraints_handling(*args)
       end
     end
 
