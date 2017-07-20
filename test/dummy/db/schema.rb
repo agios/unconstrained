@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -15,13 +14,13 @@ ActiveRecord::Schema.define(version: 20150207083618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "uuid-ossp"
 
-  create_table "children", force: :cascade do |t|
+  create_table "children", id: :serial, force: :cascade do |t|
     t.integer "parent_id"
+    t.index ["parent_id"], name: "index_children_on_parent_id"
   end
 
-  create_table "parents", force: :cascade do |t|
+  create_table "parents", id: :serial, force: :cascade do |t|
   end
 
   add_foreign_key "children", "parents"

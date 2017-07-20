@@ -1,8 +1,8 @@
 module Unconstrained
   module Handlers
     class AbstractHandler
-      def initialize error, record
-        @error = error
+      def initialize message, record
+        @message = message
         @record = record
       end
 

@@ -8,12 +8,12 @@ module Unconstrained
     class Railtie < Rails::Railtie
       initializer 'unconstrained.insert_into_active_record' do
         ActiveSupport.on_load :active_record do
-          ActiveRecord::Base.send(:include, Unconstrained::ActiveRecordPlugin)
+          ActiveRecord::Base.send(:prepend, Unconstrained::ActiveRecordPlugin)
         end
       end
     end
   else
-    ActiveRecord::Base.send(:include, Unconstrained::ActiveRecordPlugin) if defined?(ActiveRecord)
+    ActiveRecord::Base.send(:prepend, Unconstrained::ActiveRecordPlugin) if defined?(ActiveRecord)
   end
 end
 

@@ -1,4 +1,4 @@
-class ParentsWithChildren < ActiveRecord::Migration
+class ParentsWithChildren < ActiveRecord::Migration[5.0]
   def change
     create_table :parents do |t|
     end
