@@ -9,7 +9,7 @@ module Unconstrained
         @message =~ /referenced from table "(\w+)"/ && $1
       end
     end
+
     Handlers.register 'PG::ForeignKeyViolation', PostgreSQLFKHandler
   end
 end
-

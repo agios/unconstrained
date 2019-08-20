@@ -12,17 +12,12 @@ module Unconstrained
       end
     end
 
-    def with_constraints_handling action
-      begin
-        yield
-      rescue ActiveRecord::InvalidForeignKey, ActiveRecord::StatementInvalid => e
-        if Handlers.handler( e )
-          Handlers.handle( action, e, self )
-        else
-          raise
-        end
-      end
-    end
+    def with_constraints_handling(action)
+      yield
+    rescue ActiveRecord::InvalidForeignKey, ActiveRecord::StatementInvalid => e
+      raise unless Handlers.handler(e)
 
+      Handlers.handle(action, e, self)
+    end
   end
 end

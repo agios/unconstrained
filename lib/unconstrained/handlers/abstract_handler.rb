@@ -1,7 +1,7 @@
 module Unconstrained
   module Handlers
     class AbstractHandler
-      def initialize message, record
+      def initialize(message, record)
         @message = message
         @record = record
       end
@@ -35,12 +35,9 @@ module Unconstrained
         { record: constraint_error_table.humanize.downcase }
       end
 
-      def constraint_error_column
-      end
+      def constraint_error_column; end
 
-      def constraint_error_table
-      end
+      def constraint_error_table; end
     end
   end
 end
-

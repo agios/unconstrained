@@ -12,8 +12,7 @@ module Unconstrained
         end
       end
     end
-  else
-    ActiveRecord::Base.send(:prepend, Unconstrained::ActiveRecordPlugin) if defined?(ActiveRecord)
+  elsif defined?(ActiveRecord)
+    ActiveRecord::Base.send(:prepend, Unconstrained::ActiveRecordPlugin)
   end
 end
-
