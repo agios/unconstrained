@@ -9,14 +9,14 @@ module Unconstrained
       def handle_save
         column_name = constraint_error_column
         if column_name == @record.class.primary_key
-          @record.errors.add(:base, save_error_key, save_error_options)
+          @record.errors.add(:base, save_error_key, **save_error_options)
         else
-          @record.errors.add(column_name.to_sym, save_error_key, save_error_options)
+          @record.errors.add(column_name.to_sym, save_error_key, **save_error_options)
         end
       end
 
       def handle_destroy
-        @record.errors.add(:base, destroy_error_key, destroy_error_options)
+        @record.errors.add(:base, destroy_error_key, **destroy_error_options)
       end
 
       def save_error_key
