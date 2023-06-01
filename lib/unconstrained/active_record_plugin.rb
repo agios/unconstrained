@@ -1,8 +1,8 @@
 module Unconstrained
   module ActiveRecordPlugin
-    def save(*args)
+    def save(**)
       with_constraints_handling :save do
-        super(*args)
+        super
       end
     end
 
