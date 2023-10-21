@@ -1,4 +1,4 @@
-name: Run tests
+name: all tests
 on: push
 
 jobs:
