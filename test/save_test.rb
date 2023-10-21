@@ -6,5 +6,6 @@ class SaveTest < ActiveSupport::TestCase
     @child.parent_id = ActiveRecord::FixtureSet.identify(:nonexistent)
     @child.save
     assert_not_empty @child.errors[:parent_id]
+    assert_match(/is invalid/, @child.errors.first.message)
   end
 end

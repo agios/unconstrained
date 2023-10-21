@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    unconstrained (0.0.6)
+    unconstrained (0.0.7)
       rails (~> 7.0)
 
 GEM
