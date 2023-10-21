@@ -7,7 +7,10 @@ class DestroyTest < ActiveSupport::TestCase
       @parent.destroy
     end
     assert_not_empty @parent.errors[:base]
+    assert_match(/Cannot delete record because dependent .* exist/,
+                 @parent.errors.first.message)
   end
+
   test "destroyed without foreign key constraint" do
     @parent = parents(:unfruitful)
     assert_difference('Parent.count', -1) do

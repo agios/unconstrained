@@ -28,7 +28,7 @@ module Unconstrained
       end
 
       def destroy_error_key
-        :"restrict_dependent_destroy.many"
+        :"restrict_dependent_destroy.has_many"
       end
 
       def destroy_error_options
